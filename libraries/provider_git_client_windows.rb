@@ -10,6 +10,8 @@ class Chef
         action :install do
           windows_package parsed_windows_display_name do
             action :install
+            retries 4
+            retry_delay 4
             source parsed_windows_package_url
             checksum parsed_windows_package_checksum
             installer_type :inno
